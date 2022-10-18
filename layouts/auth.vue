@@ -1,9 +1,13 @@
 <template>
-  <div>Hello World</div>
+  <Nuxt />
 </template>
 
 <script>
+export default {
+
+}
 </script>
 
 <style>
+
 </style>
