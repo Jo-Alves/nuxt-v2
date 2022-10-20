@@ -1,29 +1,47 @@
 <template>
   <div>
-    <div>
-      <h1>Serviços</h1>
+    <h1 class="text-lg font-bold">Serviços</h1>
 
-      <NuxtLink to="/servicos/desenvolvimento-de-sites"
-        >Desenvolvimento de sites</NuxtLink
-      >
-      <NuxtLink to="/servicos/markentig-digital">Marketing Digital</NuxtLink>
+    <NuxtLink to="/servicos/desenvolvimento-de-sites">
+      Desenvolvimento de sites
+    </NuxtLink>
 
-      <br /><br />
+    <NuxtLink to="/servicos/marketing-digital">
+      Marketing digital
+    </NuxtLink>
 
-      <NuxtChild />
+    <br><br>
+
+    <div v-if="$fetchState.pending">
+      Carregando ...
     </div>
+
+    <div v-else>
+      <div
+        v-for="service in services" :key="service.id"
+        class="border-b border-gray-400 py-4"
+      >
+        {{ service.username }}
+      </div>
+    </div>
+
+    <br><br>
+
+    <NuxtChild />
   </div>
 </template>
-    
-  <script>
-export default {};
+
+<script>
+export default {
+  name: '',
+  data() {
+    return {
+      services: []
+    };
+  },
+  async fetch() {
+    this.services = await this.$axios.$get('https://jsonplaceholder.typicode.com/users?_limit=3')
+  },
+  methods: {},
+};
 </script>
-    
-  <style scoped>
-h1 {
-  color: red;
-}
-a {
-  margin-right: 15px;
-}
-</style>

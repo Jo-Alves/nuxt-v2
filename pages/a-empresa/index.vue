@@ -10,7 +10,12 @@
 </template>
 
 <script>
-export default {};
+export default {
+   middleware: "auth",
+  // middleware(){
+  //   console.log("middleware empresa")
+  // }
+};
 </script>
 
 <style>

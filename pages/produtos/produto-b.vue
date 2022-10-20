@@ -15,7 +15,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  middleware(){
+    console.log("middleware produto B")
+  }
+};
 </script>
 
 <style scoped>
