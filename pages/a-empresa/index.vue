@@ -11,7 +11,15 @@
 
 <script>
 export default {
-   middleware: "auth",
+  head() {
+    return {
+      title: "A empresa",
+      meta: [
+        { hid: "description", name: "description", content: "Minha descrição da empresa" }
+      ]
+    }
+  },
+  middleware: "auth",
   // middleware(){
   //   console.log("middleware empresa")
   // }

@@ -17,10 +17,7 @@
     </div>
 
     <div v-else>
-      <div
-        v-for="service in services" :key="service.id"
-        class="border-b border-gray-400 py-4"
-      >
+      <div v-for="service in services" :key="service.id" class="border-b border-gray-400 py-4">
         {{ service.username }}
       </div>
     </div>
@@ -41,6 +38,14 @@ export default {
   },
   async fetch() {
     this.services = await this.$axios.$get('https://jsonplaceholder.typicode.com/users?_limit=3')
+  },
+  head() {
+    return {
+      title: "Serviços",
+      meta: [
+        { hid: "description", name: "description", content: "Minha descrição do serviço" }
+      ]
+    }
   },
   methods: {},
 };

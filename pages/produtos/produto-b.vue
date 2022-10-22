@@ -16,6 +16,14 @@
 
 <script>
 export default {
+    head(){
+    return {
+      title: "Produto B",
+      meta: [
+        {hid: "description", name: "description", content: "Minha descrição do produto B"}
+      ]
+    }
+  },
   middleware(){
     console.log("middleware produto B")
   }

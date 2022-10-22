@@ -19,6 +19,14 @@ export default {
   data() {
     return {};
   },
+  head(){
+    return {
+      title: "Produtos",
+      meta: [
+        {hid: "description", name: "description", content: "Minha descrição do produto"}
+      ]
+    }
+  },
   async asyncData({ $axios }) {
     const products = await $axios.$get(
       "https://jsonplaceholder.typicode.com/posts?_limit=3"
